@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tracking the number of days since Duke Kunshan University’s Humanities Research Center failed to honor its printing payment commitment for The Shanghai Literary Review Issue 9.">
+  <title>DKU Payment Delay Counter | The Shanghai Literary Review</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .branding-image {
+      max-width: 300px;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .counter {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #c0392b;
+      margin: 2rem 0;
+    }
+
+    .context {
+      max-width: 600px;
+      margin: 2rem auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #c0392b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 0.5rem;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background-color: #a93226;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://github.com/shanghailitreview-rgb/dkupayment-countdow/blob/main/TSLR-Social-share-image+1.jpg?raw=true" alt="The Shanghai Literary Review" class="branding-image" />
+
+  <h1>Days Since DKU Failed to Honor Their Payment Commitment</h1>
+  <div class="counter" id="dayCounter">0</div>
+
+  <div class="context">
+    On August 8, 2025, Duke Kunshan University’s Humanities Research Center failed to fulfill its confirmed financial commitment to cover the printing costs of Issue 9 of <em>The Shanghai Literary Review</em>. 
+    <br><br>
+    This counter tracks the number of days since that breach—highlighting the institutional failures that impact small presses, independent editors, and creative laborers worldwide.
+  </div>
+
+  <div class="buttons">
+    <a href="https://www.shanghailiterary.com/donate" class="button" target="_blank">Support Us</a>
+    <a href="https://www.shanghailiterary.com/" class="button" target="_blank">Visit Homepage</a>
+    <a href="https://shanghailiterary.substack.com/" class="button" target="_blank">Read Our Statement</a>
+  </div>
+
+  <footer>
+    &copy; 2025 The Shanghai Literary Review · Built for transparency and accountability.
+  </footer>
+
+  <script>
+    const startDate = new Date('2025-08-08T00:00:00');
+    const counter = document.getElementById('dayCounter');
+
+    function updateCounter() {
+      const now = new Date();
+      const timeDiff = now - startDate;
+      const daysElapsed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      counter.textContent = daysElapsed;
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000 * 60 * 60); // Update hourly
+  </script>
+</body>
+</html>
