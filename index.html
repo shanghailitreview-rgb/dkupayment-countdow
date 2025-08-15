@@ -87,19 +87,23 @@
     &copy; 2025 The Shanghai Literary Review · Built for transparency and accountability.
   </footer>
 
-  <script>
-    const startDate = new Date('2025-08-08T00:00:00');
-    const counter = document.getElementById('dayCounter');
+ <script>
+  function updateCounter() {
+    const targetTimeZoneOffset = 8 * 60; // UTC+8 in minutes
+    const now = new Date();
+    const localOffset = now.getTimezoneOffset(); // Difference from UTC in minutes
+    const offsetDiff = targetTimeZoneOffset + localOffset; // Adjust for user's local time zone
 
-    function updateCounter() {
-      const now = new Date();
-      const timeDiff = now - startDate;
-      const daysElapsed = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-      counter.textContent = daysElapsed;
-    }
+    const nowInCST = new Date(now.getTime() + offsetDiff * 60 * 1000);
+    const startDateCST = new Date(Date.UTC(2025, 7, 8, 0, 0, 0)); // August is month 7 (0-indexed)
 
-    updateCounter();
-    setInterval(updateCounter, 1000 * 60 * 60); // Update hourly
-  </script>
+    const diffTime = nowInCST - startDateCST;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById('dayCounter').textContent = diffDays;
+  }
+
+  updateCounter();
+  setInterval(updateCounter, 60 * 1000); // Update every 1 minute
+</script>
 </body>
 </html>
