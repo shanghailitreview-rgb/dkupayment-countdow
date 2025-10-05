@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Tracking the number of days since Duke Kunshan University’s Humanities Research Center failed to honor its printing payment commitment for The Shanghai Literary Review Issue 9.">
-  <title>DKU Payment Delay Counter | The Shanghai Literary Review</title>
+  <meta name="description" content="Duke Kunshan University delayed payment for Issue 9 of The Shanghai Literary Review by 52 days.">
+  <title>DKU Payment Delay | The Shanghai Literary Review</title>
   <style>
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -68,17 +68,19 @@
 <body>
   <img src="https://github.com/shanghailitreview-rgb/dkupayment-countdow/blob/main/TSLR-Social-share-image+1.jpg?raw=true" alt="The Shanghai Literary Review" class="branding-image" />
 
-  <h1>Days Since DKU Failed to Honor Their Payment Commitment</h1>
-  <div class="counter" id="dayCounter">0</div>
+  <h1>DKU Delayed Payment for 52 Days</h1>
+  <div class="counter">52</div>
 
   <div class="context">
     On August 8, 2025, Duke Kunshan University’s Humanities Research Center failed to fulfill its confirmed financial commitment to cover the printing costs of Issue 9 of <em>The Shanghai Literary Review</em>. 
     <br><br>
-    This counter tracks the number of days since that breach—highlighting the institutional failures that impact small presses, independent editors, and creative laborers worldwide.
+    Payment was finally received after <strong>52 days</strong>, on September 29, 2025.
+    <br><br>
+    This record remains publicly available to document the delay, and to advocate for transparency and accountability in institutional dealings with independent publications.
   </div>
 
   <div class="buttons">
-    <a href="https://www.shanghailiterary.com/issue9-donor-drive" class="button" target="_blank">Support Us</a>
+    <a href="https://www.shanghailiterary.com/donate" class="button" target="_blank">Support Us</a>
     <a href="https://www.shanghailiterary.com/" class="button" target="_blank">Visit Homepage</a>
     <a href="https://shanghailiterary.substack.com/" class="button" target="_blank">Read Our Statement</a>
   </div>
@@ -86,24 +88,5 @@
   <footer>
     &copy; 2025 The Shanghai Literary Review · Built for transparency and accountability.
   </footer>
-
- <script>
-  function updateCounter() {
-    const targetTimeZoneOffset = 8 * 60; // UTC+8 in minutes
-    const now = new Date();
-    const localOffset = now.getTimezoneOffset(); // Difference from UTC in minutes
-    const offsetDiff = targetTimeZoneOffset + localOffset; // Adjust for user's local time zone
-
-    const nowInCST = new Date(now.getTime() + offsetDiff * 60 * 1000);
-    const startDateCST = new Date(Date.UTC(2025, 7, 8, 0, 0, 0)); // August is month 7 (0-indexed)
-
-    const diffTime = nowInCST - startDateCST;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById('dayCounter').textContent = diffDays;
-  }
-
-  updateCounter();
-  setInterval(updateCounter, 60 * 1000); // Update every 1 minute
-</script>
 </body>
 </html>
